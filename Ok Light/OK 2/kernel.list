@@ -1,0 +1,21 @@
+
+build/output.elf:     file format elf32-littlearm
+
+
+Disassembly of section .init:
+
+00008000 <_start>:
+    8000:	e3a02302 	mov	r2, #134217728	; 0x8000000
+
+00008004 <wait1$>:
+    8004:	e2422001 	sub	r2, r2, #1
+    8008:	e3520000 	cmp	r2, #0
+    800c:	1afffffc 	bne	8004 <wait1$>
+    8010:	e59f0014 	ldr	r0, [pc, #20]	; 802c <wait1$+0x28>
+    8014:	e3a01001 	mov	r1, #1
+    8018:	e1a01a81 	lsl	r1, r1, #21
+    801c:	e5801010 	str	r1, [r0, #16]
+    8020:	e3a01001 	mov	r1, #1
+    8024:	e1a01781 	lsl	r1, r1, #15
+    8028:	e5801020 	str	r1, [r0, #32]
+    802c:	20200000 	.word	0x20200000
